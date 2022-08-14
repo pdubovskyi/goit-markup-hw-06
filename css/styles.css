@@ -368,7 +368,7 @@ body {
 }
 
 .modal-title {
-  margin-bottom: 30px;
+  margin-bottom: 12px;
 
   font-weight: 700;
   font-size: 20px;
@@ -379,7 +379,16 @@ body {
 }
 
 .modal-field {
-  margin-bottom: 28px;
+  margin-bottom: 10px;
+}
+
+.modal-field:nth-child(4) {
+  margin-bottom: 20px;
+}
+
+.modal-field:nth-child(5) {
+  margin-bottom: 30px;
+  padding-left: 14px;
 }
 
 /* .modal-field:focus {
@@ -393,11 +402,13 @@ body {
   padding-left: 42px;
   padding-top: 18px;
   padding-bottom: 18px;
+  font-size: 12px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   outline: transparent;
-  transition: border-color 500ms;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:focus {
@@ -408,14 +419,32 @@ body {
   fill: var(--main-accent-color);
 }
 
+.modal-input:not(:focus):valid {
+  background-color: rgb(232, 240, 254);
+}
+
 .text-field {
   width: 100%;
   height: 120px;
   padding: 12px 16px;
 
+  font-size: 12px;
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-field:placeholder-shown {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: #757575;
+}
+
+.text-field:focus {
+  border-color: var(--main-accent-color);
 }
 
 .modal-label {
@@ -448,6 +477,13 @@ body {
   border: transparent;
   border-radius: 4px;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: var(--secondary-accent-color);
 }
 
 .modal-icon-field {
@@ -465,15 +501,25 @@ body {
 .check-mark {
   display: flex;
   gap: 9px;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: #757575;
 }
 
 .check-mark span {
   width: 16px;
   height: 15px;
   display: flex;
+
   align-items: center;
   justify-content: center;
   border: 2px solid #212121;
+  border-radius: 2px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .check-mark-icon {
@@ -520,7 +566,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 24%;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -776,6 +822,83 @@ body {
   background-color: var(--main-accent-color);
 }
 
+.footer-email {
+  margin-left: auto;
+}
+
+.footer-email-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  margin-bottom: 20px;
+}
+
+.footer-input {
+  height: 50px;
+  width: 358px;
+  padding-left: 15px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: #2f303a;
+  outline: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-input:focus {
+  border-color: #2196f3;
+}
+
+.footer-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+}
+
+.footer-form {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-btn {
+  min-width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.footer-btn:focus,
+.footer-btn:hover {
+  background-color: var(--secondary-accent-color);
+}
+
+.footer-btn-icon {
+  fill: #ffffff;
+}
+
 /*--------------PORTFOLIO: FILTER---------*/
 
 .filter-list {
@@ -889,7 +1012,7 @@ body {
   background-color: rgba(33, 150, 243, 0.9);
 }
 
-.portfolio-item:hover .overlay-card,
-.portfolio-item:focus .overlay-card {
+.portfolio-link:hover .overlay-card,
+.portfolio-link:focus .overlay-card {
   transform: translateY(0);
 }
